@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>New Product</title>
+</head>
+
+<body> 
+<p>Please enter product details below.<br></p>
+    
+<form action="{{page}}" method="post" enctype="multipart/form-data">
+    
+<label for="name">Name:</label><br>
+<input id="name" name="name" value="" type="text"><br>
+    
+<label for="author">Author:</label><br>
+<input id="author" name="author" value="" type="text"><br>
+    
+<label for="date">Date:</label><br>
+<input id="date" name="date" value="" type="text"><br>
+    
+<label for="ISBN">ISBN-13 Number (Must be included and be 13 numbers long):</label><br>
+<input id="ISBN" name="ISBN" value="" type="text"><br>
+    
+<label for="description">Description:</label><br>
+<input id="description" name="description" value="" type="text"><br>
+
+<label for="picture">Front Cover Picture:</label><br>
+<input type="file" id="image" name="image" accept="image/*"><br>
+    
+<label for="tradeprice">Trade Price (Max £100):</label><br>
+<input id="tradeprice" name="tradeprice" value="" type="text"><br>
+    
+<label for="retailprice">Retail Price (Max £100):</label><br>
+<input id="retailprice" name="retailprice" value="" type="text"><br>
+    
+<label for="quantity">Quantity (Max 20):</label><br>
+<input id="quantity" name="quantity" value="" type="text"><br>
+
+<br>
+<input value="Submit" type="submit"> </form>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Python Flask Simple Shopping Cart</title>
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div>
+		{% with messages = get_flashed_messages() %}
+		  {% if messages %}
+			<ul class=flashes>
+			{% for message in messages %}
+			  <li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		  {% endif %}
+		{% endwith %}
+	</div>
+
+  <h2>
+  <a href="{{ url_for('.login')}}">Login</a>
+  </h2>
+  
+  <h2>
+  <a href="{{ url_for('.register')}}">Register</a>
+  </h2>
+  
+  <h1>
+  <a href="https://explain-java-5000.codio-box.uk/basket">Basket &#128722 </a> 
+  </h1>
+  
+  <h3>
+  <a>Items in basket: {{ session['all_total_quantity'] }}</a>
+  </h3>
+  
+  <h3>
+  <a>Basket total: £{{ session['all_total_price'] }}</a>
+  </h3>
+  
+  <!-- Stock levels button -->
+  {% if session['isadmin'] == True %}
+    <h3>
+    <a href="https://explain-java-5000.codio-box.uk/stocklevels">Stock levels</a> 
+    </h3>
+  {% endif %}
+  <!--Stock levels button End -->
+  
+    
+    <!-- Products -->
+	<div id="product-grid">
+		<div class="txt-heading">Products</div>
+
+		{% for book in books %}
+        
+			<div class="product-item">
+				<form method="post" action="/add">
+					<div class="product-image"><img src="/static/images/book-images/{{ book[5] }}"></div>
+					<div class="product-tile-footer">
+						<div class="product-title">{{ book[0] }}</div>
+						<div class="product-price">&#8356; {{ book[7] }}</div>
+						<div class="cart-action">
+							<input type="hidden" name="code" value="{{ book[3] }}"/>
+							<input type="text" class="product-quantity" name="quantity" value="1" size="2" />
+							<input type="submit" value="Add to Cart" class="btnAddAction" />
+						</div>
+					</div>
+				</form>
+			</div>
+
+		{% endfor %}
+	    <!-- Products End -->
+        
+        
+        
+	</div>
+</body>
+</html>
